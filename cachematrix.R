@@ -45,7 +45,7 @@ cacheSolve <- function(x, ...)
 testIt <- function() {
   a_matrix      <- rbind(c(1, 4), c(2, 3))
   inverse_value <- solve(a_matrix)
-  true_matrix   <- x == x
+  true_matrix   <- inverse_value == inverse_value
 
   cache_matrix  <- makeCacheMatrix(a_matrix)
 
@@ -61,7 +61,7 @@ testIt <- function() {
     return(message("cache_matrix$get_inverse() did not return the expected value"))
   }
 
-  cache_matrix$set(x)
+  cache_matrix$set(a_matrix)
   if(!is.null(cache_matrix$get_inverse())) {
     return(message("cache matrix after a set call should return null inverse value"))
   }
